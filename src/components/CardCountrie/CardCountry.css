@@ -1,0 +1,7 @@
+.container__country {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr))
+}

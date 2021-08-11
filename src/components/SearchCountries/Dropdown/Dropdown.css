@@ -1,0 +1,17 @@
+.dropdown ul{
+    list-style: none;
+}
+.dropdown {
+    position: relative;
+}
+
+.dropdown ul > li {
+    position: absolute;
+}
+
+.btn__dropdown{
+    background: burlywood;
+    outline: none;
+    border: none;
+    padding: 20px;
+}

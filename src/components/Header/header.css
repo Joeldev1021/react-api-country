@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: solid 1px #E8EEEE; 
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+
+.btn__dark{
+   background: none;
+   border: none;
+   outline: none;
+   cursor: pointer;
+   font-size: 17px;
+}
+
+.btn__dark::before{
+    padding: 0px 20px;
+   
+}
