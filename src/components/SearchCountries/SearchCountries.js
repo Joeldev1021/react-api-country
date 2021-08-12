@@ -1,13 +1,13 @@
 import React from "react";
 import Dropdown from "./Dropdown/Dropdown";
 import Search from "./Search/Search";
+import './SearchCountries.css'
 
-const SearchCountries = () => {
+const SearchCountries = ({formSearchCountry, filterDropdow}) => {
   return (
-    <div className="container">
-        <h1>search</h1>
-      <Search/>
-     <Dropdown/>
+    <div className="container search">
+     <Search formSearchCountry={formSearchCountry}/>
+     <Dropdown filterDropdow={filterDropdow}/>
     </div>
   );
 };

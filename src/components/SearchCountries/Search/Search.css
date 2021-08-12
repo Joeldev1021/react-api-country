@@ -1,0 +1,23 @@
+.form {
+    background:#FEFEFE;
+    border: solid 1px #E8EEEE;
+    width: 400px;
+    height: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+input {
+    width: 310px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.fa-search {
+   width: 70px; 
+   background: none;
+    outline: none;
+    border: none;
+}

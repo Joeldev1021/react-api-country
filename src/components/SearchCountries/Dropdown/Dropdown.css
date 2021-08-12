@@ -1,17 +1,39 @@
-.dropdown ul{
+.dropdow__menu{
     list-style: none;
+    position: absolute;
+    height: 0;
+    overflow: hidden;
+    transition: ease .3s;
 }
+.show {
+    height: 170px;
+}
+
 .dropdown {
     position: relative;
 }
 
-.dropdown ul > li {
-    position: absolute;
+.dropdow__menu li {
+    width: 200px;
+    padding: 8px 15px;
+    text-align: left;
+    background: #FEFEFE;
+    
+}
+
+.dropdow__menu li:hover {
+    cursor: pointer;
+    background:#f5f0f0 ;
 }
 
 .btn__dropdown{
-    background: burlywood;
+    background: #FEFEFE;
+    width: 200px;
     outline: none;
     border: none;
-    padding: 20px;
+    padding: 20px 15px;
+    border: solid 1px #E8EEEE; 
+    border-radius: 5px;
+    text-align: left;
+    cursor: pointer;
 }

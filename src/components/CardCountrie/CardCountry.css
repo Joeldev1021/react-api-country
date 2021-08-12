@@ -5,3 +5,10 @@
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr))
 }
+.container__country {
+   display: grid;
+   grid-gap: 68px;
+   grid-template-columns: repeat(auto-fil, minmax(15rem, 1fr));
+   width: 90%;
+   margin: auto;
+}

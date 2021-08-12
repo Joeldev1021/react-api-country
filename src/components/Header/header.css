@@ -1,8 +1,10 @@
+
 .header {
     display: flex;
     align-items: center;
     height: 50px;
     border-bottom: solid 1px #E8EEEE; 
+    background: #FEFEFE;
 }
 .container {
     display: flex;
