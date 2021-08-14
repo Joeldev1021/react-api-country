@@ -2,9 +2,10 @@
 .header {
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 70px;
     border-bottom: solid 1px #E8EEEE; 
     background: #FEFEFE;
+    
 }
 .container {
     display: flex;
@@ -26,3 +27,4 @@
     padding: 0px 20px;
    
 }
+

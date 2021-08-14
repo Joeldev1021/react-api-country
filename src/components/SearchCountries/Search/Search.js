@@ -11,11 +11,11 @@ export default function Search({formSearchCountry}) {
   }
 
   return (
-    <div>
-      <form  onSubmit={handleSubmit} className="form">
+    <>
+      <form data-color='element' onSubmit={handleSubmit} className="form">
         <input type="text" onChange={(e)=>setForm(e.target.value)} placeholder="Search for a country"/>
         <button className="fas fa-search"></button>
       </form>
-    </div>
+    </>
   );
 }

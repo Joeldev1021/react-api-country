@@ -5,7 +5,7 @@ import './SearchCountries.css'
 
 const SearchCountries = ({formSearchCountry, filterDropdow}) => {
   return (
-    <div className="container search">
+    <div className="container search__section">
      <Search formSearchCountry={formSearchCountry}/>
      <Dropdown filterDropdow={filterDropdow}/>
     </div>

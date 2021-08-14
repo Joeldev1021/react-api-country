@@ -20,18 +20,17 @@ const Dropdown = ({filterDropdow}) => {
   }
 
  
-
     return (    
-     <div className="dropdown">
-       <button className="btn__dropdown" onClick={handleOnclick}>
+     <div  className="dropdown">
+       <button data-color="element" className="btn__dropdown" onClick={handleOnclick}>
           Filter by region
         </button>
-        <ul   className="dropdow__menu" id="btnRef">
-          <li  data-name="africa">África</li>
-          <li data-name="americas">América</li>
-          <li data-name="asia">Asia</li>
-          <li data-name="europe">Europa</li>
-          <li data-name="oceania">Oceanía</li>
+        <ul data-color="element" className="dropdow__menu" id="btnRef">
+          <li className="dropdown__link" data-name="africa">África</li>
+          <li className="dropdown__link" data-name="americas">América</li>
+          <li className="dropdown__link" data-name="asia">Asia</li>
+          <li className="dropdown__link" data-name="europe">Europa</li>
+          <li className="dropdown__link" data-name="oceania">Oceanía</li>
         </ul>
       </div>
     )

@@ -1,19 +1,19 @@
 import  { useEffect } from 'react'
 
+
+
 const FetchCountries = (api, countrySearch , getCountries) => {
    let url
   if(countrySearch === 'all'){
     url = `${api}/${countrySearch}`
   }else if(countrySearch === 'africa'||countrySearch === 'americas' ||countrySearch === 'asia' ||countrySearch === 'europe' ||countrySearch === 'oceania'){
-     url = `${api}/region/${countrySearch}`
-     
+     url = `${api}/region/${countrySearch}`  
   }else {
-   
     url = `${api}/name/${countrySearch}?fullText=true`
   }
   
   useEffect(() => {
-        console.log(url)
+       
        fetchApiCountries(url)
        .then(res=> getCountries(res))
   }, [countrySearch])
@@ -22,7 +22,7 @@ const FetchCountries = (api, countrySearch , getCountries) => {
     
     const res = await fetch(api_url)
     const data = await res.json()
-    console.log(data)
+   
     return data
   }
 

@@ -4,6 +4,7 @@
     height: 0;
     overflow: hidden;
     transition: ease .3s;
+    background: #FEFEFE;
 }
 .show {
     height: 170px;
@@ -13,17 +14,26 @@
     position: relative;
 }
 
-.dropdow__menu li {
+.dropdown__link{
     width: 200px;
     padding: 8px 15px;
-    text-align: left;
-    background: #FEFEFE;
-    
+    text-align: left;   
 }
 
-.dropdow__menu li:hover {
+.dropdown__link:hover {
     cursor: pointer;
     background:#f5f0f0 ;
+}
+.hover {
+    width: 200px;
+    padding: 8px 15px;
+    text-align: left; 
+    
+ }
+ 
+.hover:hover {
+    cursor: pointer;
+    background: #1b2630;
 }
 
 .btn__dropdown{
@@ -36,4 +46,10 @@
     border-radius: 5px;
     text-align: left;
     cursor: pointer;
+}
+
+@media (max-width: 667px) {
+    .dropdown{
+        margin-top: 40px;
+    }
 }

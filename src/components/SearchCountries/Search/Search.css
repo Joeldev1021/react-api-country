@@ -21,3 +21,9 @@ input {
     outline: none;
     border: none;
 }
+
+@media (max-width: 667px) {
+    .form{
+        width: 95%;
+    }
+}
