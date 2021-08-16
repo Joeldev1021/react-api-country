@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import './BtnBack.css'
 
 function BtnBack() {
   return (
-    <div>
+    <div className="container">
       <Link to="/">
-        <h2>Back</h2>
+        <h4 className="btn fas fa-arrow-left">Back</h4>
       </Link>
     </div>
   );

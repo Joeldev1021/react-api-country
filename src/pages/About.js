@@ -4,8 +4,11 @@ import BtnBack from '../components/BtnBack/BtnBack';
 import {useParams} from 'react-router-dom'
 import FetchCountries from '../helpers/FetchCountries';
 import CountryInfo from '../components/countryInfo/CountryInfo';
+import './styles.css'
 
 const API_URI = "https://restcountries.eu/rest/v2";
+
+
 
 const About=()=> {
     let { keyword } = useParams();
@@ -21,15 +24,14 @@ const About=()=> {
 
   
     return (
-        <div>
+        <>
             <Header/>
-             <BtnBack />
-             <h1>about Contry {keyword}</h1>
-             <div className="contianer">
+            <BtnBack />
+             <div className="container">    
                 <img className="about__img" src={country.flag} alt="" />
                 <CountryInfo country={country}/>
              </div>
-        </div>
+        </>
     )
 }
 

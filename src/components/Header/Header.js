@@ -31,8 +31,10 @@ const Header = () => {
        element.style.border =  colorBackground.borderColor
        element.style.color = colorBackground.texColor     
     });
+    
     const appStyle =  document.querySelector('.App')
     appStyle.style.background = colorBackground.backgroundTheme
+    appStyle.style.color = colorBackground.texColor 
     const liApp =document.querySelectorAll('li') 
     liApp.forEach(el=>{
       el.classList.toggle('dropdown__link')

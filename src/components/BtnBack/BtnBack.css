@@ -1,0 +1,10 @@
+.fa-arrow-left::before{
+   margin-right: 10px;
+}
+.btn {
+    background: #FEFEFE;
+    color:black;
+    border: solid 1px #E8EEEE;
+    padding: 15px 20px;
+    border-radius: 5px;
+}

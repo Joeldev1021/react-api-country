@@ -1,0 +1,56 @@
+.container__description {
+    margin-top: 30px;
+}
+
+.container__description h1 {
+    padding: 20px 0px;
+}
+
+.description_info p > span {
+    font-weight: 800;
+}
+
+.container__infoCountry {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(2, 1fr);
+} 
+
+.lenguages {
+    display: flex;
+    align-items: center;
+}
+.container__lenguages {
+    display: flex;
+}
+
+.container__lenguages p {
+    margin-left: 5px;
+}
+
+.container__borderCountry{
+    display: flex;
+}
+
+
+/* =========================container__borderCountry============ */
+
+.container__borderCountry {
+    display: flex;
+    margin-top: 80px;
+    align-items: center;
+}
+
+.container__borderCountry p > span {
+    font-weight: 800;
+}
+.border__country {
+    padding: 5px 20px;
+    margin: 0px 5px;
+}
+
+
+
+
+
+

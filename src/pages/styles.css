@@ -1,0 +1,8 @@
+.container{ 
+    width: 90%;
+    margin: 20px auto;
+    align-items: flex-start;
+}
+.about__img {
+    width: 500px;
+}

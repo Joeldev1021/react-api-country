@@ -4,7 +4,7 @@
     border-radius: 5px;
     overflow: hidden;
     background: #FEFEFE;
-    height: 270px;
+    height: 290px;
     margin:auto;
 }
 
@@ -12,6 +12,7 @@
     width: 100%;
     height: 135px; 
     margin-top: 0px;
+    object-fit: cover;
 }
 
 .card__name {
