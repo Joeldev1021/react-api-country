@@ -1,7 +1,7 @@
 import React from "react";
 
 const ItemInfoCountry = ({ country }) => {
-  console.log(country)
+  
   return (
     <>
       <div className="description_info">

@@ -9,7 +9,7 @@ const API_URI = "https://restcountries.eu/rest/v2";
 
 
 
-const About=()=> {
+const About=({data})=> {
     let { keyword } = useParams();
     const [country, setCountry] = useState('')
 
@@ -22,9 +22,9 @@ const About=()=> {
     return (
         <>
             <BtnBack />
-             <div  className="container">    
+             <div  className="container container__about">    
                 <img className="about__img" src={country.flag} alt="" />
-                <CountryInfo country={country}/>
+                <CountryInfo data={data} country={country}/>
              </div>
         </>
     )

@@ -8,69 +8,31 @@ import "./header.css";
 
 const Header = () => {
  const {colorTheme, aboutCountryPage } = useContext(ContextTheme)
-  const [switchTheme, setSwitchTheme] = useState(true)
-  const $body =  document.querySelector('body')
-  const $btnDark = document.querySelector('.btn__dark')
+  const [switchTheme, setSwitchTheme] = useState(false)
  
-  useEffect(() => {
-    funcThemeDark()
-    console.log('hola')
-  }, [aboutCountryPage])
+  const themeContext = useContext(ContextTheme)
+  
 
   const handleTheme =()=>{
-       setSwitchTheme(!switchTheme) 
-       funcThemeDark()  
+        console.log('change color') 
+        setSwitchTheme(!switchTheme)
+        changeColorTheme()
   }
 
-  const changeTheme=(colors)=>{
-    const elementTheme =  document.querySelectorAll('[data-color="element"]');
-    elementTheme.forEach(el=>{
-      el.style.background = colors.backgroundElement
-      el.style.color = colors.texColor
-      
-    })
-}
-
-const funcThemeDark=()=>{ 
-  
-  if(!switchTheme){
-    $body.style.background = '#FAFAFA'
-    $body.style.color = '#000000'
-    changeTheme(colorTheme[1])
-    //console.log($btnDark.classList.replace('fas', 'far'))
-   
-  }else {  
-    $body.style.background = '#202C37'
-    $body.style.color = '#FEFEFE'
-    changeTheme(colorTheme[0])
-    //console.log($btnDark.classList.replace('far', 'fas'))
+  const changeColorTheme=()=>{
+         let valueColor
+         switchTheme? valueColor =0 : valueColor=1
+         document.documentElement.style.setProperty("--background", themeContext.colors[valueColor].$background)
+         document.documentElement.style.setProperty("--element", themeContext.colors[valueColor].$element)
+        document.documentElement.style.setProperty("--text", themeContext.colors[valueColor].$text)  
+        document.documentElement.style.setProperty("--hover", themeContext.colors[valueColor].$hover) 
   }
-}
-  
-  // if(!switchTheme){
-  //   $body.style.background = '#FAFAFA'
-  //   $body.style.color = '#000000'
-  //   changeTheme(colorTheme[1])
-
-  //   //console.log($btnDark.classList.replace('fas', 'far'))
-   
-  // }else {  
-  //   $body.style.background = '#202C37'
-  //   $body.style.color = '#FEFEFE'
-  //   changeTheme(colorTheme[0])
-  //  // console.log($btnDark.classList.replace('far', 'fas'))
-  // }
-
- 
-
-
 
   return (
-    <header className="header" data-color='element'>
+    <header className="header" >
       <div className="container">
           <h4 className="header__title">Where in the world?</h4>
           <button onClick={()=>handleTheme()} 
-          data-color='element'
           className="far fa-moon btn__dark">Dark modo</button>
        </div>     
     </header>

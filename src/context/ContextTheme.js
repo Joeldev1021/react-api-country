@@ -2,25 +2,33 @@ import React, { createContext, useState } from 'react'
 
 export  const ContextTheme = createContext()
 
-let colorTheme = [
-  {  
-    backgroundElement: "#2B3945",
-    texColor: '#FEFEFE', 
-  },
+let colors = [
+   {  
+    $element: "#fff",
+    $background: "#fafafa",
+    $text:"#111517",
+    $input:"#858585",
+    $hover: "inherit",
+    $opacity: 1,
+    $option: "rgba(0,0,0,0.1)",
+   },
    {
-    backgroundElement: "#FEFEFE",
-    texColor: '#000000',
+    $element: "#2b3945",
+    $background: "#202c37" ,
+    $text:" #fff",
+    $input: "#fff",
+    $hover: "hsla(0,0%,100%,0.1)",
+    $opacity: 1,
+    $option: "hsla(0,0%,100%,0.1)"
    }
 ]
 
 export const ProviderTheme=({children})=> {
-    const [aboutCountryPage, setAboutCountryPage] = useState(false)
+    
 
     return (
         <ContextTheme.Provider value={{ 
-             colorTheme,
-             aboutCountryPage,
-             setAboutCountryPage
+          colors,
             }}>
             {children}
         </ContextTheme.Provider>

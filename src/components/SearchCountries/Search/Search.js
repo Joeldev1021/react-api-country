@@ -17,7 +17,7 @@ export default function Search({formSearchCountry}) {
 
   return (
     <>
-      <form data-color='element' onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit} className="form">
         <input type="text" onChange={(e)=>handleChange(e.target.value)} placeholder="Search for a country"/>
         <button className="fas fa-search"></button>
       </form>

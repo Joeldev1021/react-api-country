@@ -17,10 +17,10 @@ const Dropdown = ({selectDropdown}) => {
  
     return (    
      <div  className="dropdown">
-       <button data-color="element" className="btn__dropdown" onClick={handleOnclick}>
+       <button className="btn__dropdown" onClick={handleOnclick}>
           Filter by region
         </button>
-        <ul onClick={handleSelect} data-color="element" className="dropdow__menu" id="btnRef">
+        <ul onClick={handleSelect}  className="dropdow__menu" id="btnRef">
           <li className="dropdown__link" data-name="africa">África</li>
           <li className="dropdown__link" data-name="americas">América</li>
           <li className="dropdown__link" data-name="asia">Asia</li>

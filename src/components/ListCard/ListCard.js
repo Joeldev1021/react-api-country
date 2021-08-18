@@ -10,7 +10,7 @@ const ListCard = ({ countries }) => {
         
         return (
           <Link   className="link" to={`/about/${item.name}`}>
-          <div data-color="element" className="card__country" key={item.name} >  
+          <div  className="card__country" key={item.name} >  
               <img src={item.flag} alt={item.name} />
               <div class="card__info__country">
                 <p className="card__item--name">{item.name}</p>

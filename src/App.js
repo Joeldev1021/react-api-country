@@ -14,7 +14,6 @@ const API_URL = "https://restcountries.eu/rest/v2";
 function App() {
   const [data, setData] = useState([])
   const [region, setRegion] = useState('')
-  const [filterCountry, setFilterCountry] = useState('')
   const [statusSearch, setStatusSearch] = useState(false)
   
   useEffect(() => {
@@ -52,7 +51,7 @@ function App() {
         <Header />
         <Switch>
            <Route path="/about/:keyword">
-            <About/>
+            <About data={data}/>
           </Route>
           <Route exact path="/">
             <Home 

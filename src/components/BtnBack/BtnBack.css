@@ -1,12 +1,16 @@
 .fa-arrow-left::before{
    margin-right: 10px;
+   color:var(--text)
 }
+
 .btn {
-    background: #FEFEFE;
-    color:black;
+    background: var(--element);
+    color:var(--text);
     padding: 15px 20px;
     border-radius: 5px;
     -webkit-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
      box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+     opacity: 1;
+     transition: ease .5s;
 }

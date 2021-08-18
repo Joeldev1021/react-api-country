@@ -4,14 +4,14 @@ import { ContextTheme } from "../../context/ContextTheme";
 import './BtnBack.css'
 
 function BtnBack() {
-  const {aboutCountryPage} = useContext(ContextTheme)
+  
 
 
 
   return (
     <div className="container">
       <Link  to="/">
-        <h4 data-color='element' className="btn fas fa-arrow-left">Back</h4>
+        <h4  className="btn fas fa-arrow-left">Back</h4>
       </Link>
     </div>
   );

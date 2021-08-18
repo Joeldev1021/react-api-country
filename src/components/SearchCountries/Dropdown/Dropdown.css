@@ -4,7 +4,7 @@
     height: 0;
     overflow: hidden;
     transition: ease .3s;
-    background: #FEFEFE;
+    background: var(--element);
 }
 .show {
     height: 190px;
@@ -22,8 +22,9 @@
 
 .dropdown__link:hover {
     cursor: pointer;
-    background:#f5f0f0 ;
+    background:var(--hover);
 }
+
 .hover {
     width: 200px;
     padding: 8px 15px;
@@ -31,13 +32,14 @@
     
  }
  
-.hover:hover {
+/* .hover:hover {
     cursor: pointer;
     background: #1b2630;
-}
+} */
 
 .btn__dropdown{
-    background: #FEFEFE;
+    background: var(--element);
+    color:var(--text);
     width: 200px;
     outline: none;
     border: none;
@@ -48,7 +50,11 @@
     -webkit-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
      box-shadow: 0px 0px 5px -2px rgba(0,0,0,0.75);
+     opacity: 1;
+     transition: ease .5s;
 }
+
+
 
 @media (max-width: 667px) {
     .dropdown{
