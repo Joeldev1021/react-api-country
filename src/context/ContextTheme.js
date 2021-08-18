@@ -3,27 +3,24 @@ import React, { createContext, useState } from 'react'
 export  const ContextTheme = createContext()
 
 let colorTheme = [
-  {
-    backgroundTheme : "#202c37",
-    backgroundElement: "#2b3945",
-    texColor: '#FEFEFE',
-    borderColor: '1px solid #1b2630'
+  {  
+    backgroundElement: "#2B3945",
+    texColor: '#FEFEFE', 
   },
    {
-    backgroundTheme:"#FAFAFA",
     backgroundElement: "#FEFEFE",
     texColor: '#000000',
-    borderColor: '1px solid #E8EEEE'
    }
 ]
 
 export const ProviderTheme=({children})=> {
-    const [themeDark, setThemeDark] = useState(false)
+    const [aboutCountryPage, setAboutCountryPage] = useState(false)
+
     return (
-        <ContextTheme.Provider value={{
-            themeDark,
-             setThemeDark, 
-             colorTheme
+        <ContextTheme.Provider value={{ 
+             colorTheme,
+             aboutCountryPage,
+             setAboutCountryPage
             }}>
             {children}
         </ContextTheme.Provider>

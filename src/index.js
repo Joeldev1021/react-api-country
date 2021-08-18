@@ -1,25 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { ProviderTheme } from "./context/ContextTheme";
+import './index.css'
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import About from "./pages/About.js";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <ProviderTheme>
-        <Switch>
-           <Route path="/about/:keyword">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <App />
-          </Route>
-        </Switch>
-      </ProviderTheme>
-    </BrowserRouter>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );

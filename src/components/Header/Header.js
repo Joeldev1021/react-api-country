@@ -1,55 +1,77 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import { useEffect } from "react";
 import { ContextTheme } from "../../context/ContextTheme";
 import "./header.css";
 
-let colorBackground
+
 
 
 const Header = () => {
-
-    const {themeDark,setThemeDark, colorTheme} = useContext(ContextTheme)
+ const {colorTheme, aboutCountryPage } = useContext(ContextTheme)
+  const [switchTheme, setSwitchTheme] = useState(true)
+  const $body =  document.querySelector('body')
+  const $btnDark = document.querySelector('.btn__dark')
+ 
+  useEffect(() => {
+    funcThemeDark()
+    console.log('hola')
+  }, [aboutCountryPage])
 
   const handleTheme =()=>{
-     
-      const elementTheme =  document.querySelectorAll('[data-color="element"]');
-      addChangeColor(elementTheme)
-      setThemeDark(theme=> !theme)
+       setSwitchTheme(!switchTheme) 
+       funcThemeDark()  
   }
 
-  const addChangeColor=(el)=>{
-      if(!themeDark){
-        colorBackground = colorTheme[0]
-      }else {
-        colorBackground = colorTheme[1]
-      }
-      changeTheme(el)
-  }
-
-  const changeTheme=(el)=>{
-    el.forEach(element => {
-       element.style.background = colorBackground.backgroundElement
-       element.style.border =  colorBackground.borderColor
-       element.style.color = colorBackground.texColor     
-    });
-    
-    const appStyle =  document.querySelector('.App')
-    appStyle.style.background = colorBackground.backgroundTheme
-    appStyle.style.color = colorBackground.texColor 
-    const liApp =document.querySelectorAll('li') 
-    liApp.forEach(el=>{
-      el.classList.toggle('dropdown__link')
-      el.classList.toggle('hover')
+  const changeTheme=(colors)=>{
+    const elementTheme =  document.querySelectorAll('[data-color="element"]');
+    elementTheme.forEach(el=>{
+      el.style.background = colors.backgroundElement
+      el.style.color = colors.texColor
+      
     })
-    // liApp.style.background.hover = colorBackground.backgroundTheme
+}
+
+const funcThemeDark=()=>{ 
+  
+  if(!switchTheme){
+    $body.style.background = '#FAFAFA'
+    $body.style.color = '#000000'
+    changeTheme(colorTheme[1])
+    //console.log($btnDark.classList.replace('fas', 'far'))
+   
+  }else {  
+    $body.style.background = '#202C37'
+    $body.style.color = '#FEFEFE'
+    changeTheme(colorTheme[0])
+    //console.log($btnDark.classList.replace('far', 'fas'))
   }
-  let colorBtn
-  colorBackground? colorBtn = colorBackground.texColor : colorBtn = 'black'
+}
+  
+  // if(!switchTheme){
+  //   $body.style.background = '#FAFAFA'
+  //   $body.style.color = '#000000'
+  //   changeTheme(colorTheme[1])
+
+  //   //console.log($btnDark.classList.replace('fas', 'far'))
+   
+  // }else {  
+  //   $body.style.background = '#202C37'
+  //   $body.style.color = '#FEFEFE'
+  //   changeTheme(colorTheme[0])
+  //  // console.log($btnDark.classList.replace('far', 'fas'))
+  // }
+
+ 
+
+
 
   return (
     <header className="header" data-color='element'>
       <div className="container">
           <h4 className="header__title">Where in the world?</h4>
-          <button onClick={()=>handleTheme()} style={{color: colorBtn}} className="fas fa-moon btn__dark">Dark modo</button>
+          <button onClick={()=>handleTheme()} 
+          data-color='element'
+          className="far fa-moon btn__dark">Dark modo</button>
        </div>     
     </header>
   );

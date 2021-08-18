@@ -1,6 +1,4 @@
-import  { useEffect } from 'react'
-
-
+import react, { useEffect } from 'react'
 
 const FetchCountries = (api, countrySearch , getCountries) => {
    let url
@@ -11,23 +9,43 @@ const FetchCountries = (api, countrySearch , getCountries) => {
   }else {
     url = `${api}/name/${countrySearch}?fullText=true`
   }
-  
-  useEffect(() => {
-       
-       fetchApiCountries(url)
-       .then(res=> getCountries(res))
-  }, [countrySearch])
 
-  const fetchApiCountries=async(api_url)=>{
-    
+  
+  useEffect(() => {   
+       FetchApiCountries(url)
+       .then(res=> getCountries(res))
+  }, [])
+
+  
+  const FetchApiCountries=async(api_url)=>{
+
     const res = await fetch(api_url)
     const data = await res.json()
-   
+ 
     return data
-  }
+}
 
 }
  
 export default FetchCountries
+
+
+
+
+  // const getCountries = (response) => {
+  //   const res = response.map((item) => {
+  //     const { name, flag, capital, population, region } = item;
+  //     let pais = {
+  //       name,
+  //       flag,
+  //       capital,
+  //       population,
+  //       region,
+  //     };
+  //     return pais;
+  //   });
+  //   setData(res);
+  // };
+
 
 

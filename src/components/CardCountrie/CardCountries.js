@@ -1,18 +1,15 @@
 import React from 'react';
 import ListCard from '../ListCard/ListCard';
+import Loading from '../Loading'
 import './CardCountry.css'
 
-const CardCountries = ({countries}) => {
+const CardCountries = ({data}) => {
   
-    const LoadingCountries = ()=>{
-        return (
-            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-        )
-    }
-
     return (
         <div className="container__country">
-           {countries === null? <LoadingCountries/>:<ListCard countries={countries} />}
+          {
+            data.length>0? <ListCard countries={data}/>: <Loading/>
+          }
         </div>
     )
 }

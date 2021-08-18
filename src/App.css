@@ -1,12 +1,7 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Nunito Sans', sans-serif;
-}
+
 .App {
-  text-align: center;
-  background: #FAFAFA;
+  text-align: left;
+  
 }
 
 a {

@@ -1,8 +1,15 @@
 import React from "react";
 import "./CountryInfo.css";
+import '../../App.css'
 import ItemInfoCountry from "./ItemInfoCountry";
+import { Link } from "react-router-dom";
+import BorderCountry from "./BorderCountry";
 
 const CountryInfo = ({ country }) => {
+
+ 
+
+ 
   return (
     <>
       {country ? (
@@ -13,9 +20,7 @@ const CountryInfo = ({ country }) => {
           </div>
           <div className="container__borderCountry">
             <p> <span>Border Countries:</span> </p>
-            <div className="btn border__country">France</div>
-            <div className="btn border__country">Germany</div>
-            <div className="btn border__country">Ingles</div>
+            <BorderCountry border={country.borders}/>
           </div>
         </div>
       ) : (

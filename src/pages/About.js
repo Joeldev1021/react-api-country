@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import Header from '../components/Header/Header'
+import React, { useEffect, useState } from 'react'
 import BtnBack from '../components/BtnBack/BtnBack';
 import {useParams} from 'react-router-dom'
-import FetchCountries from '../helpers/FetchCountries';
 import CountryInfo from '../components/countryInfo/CountryInfo';
 import './styles.css'
+import { getApiCountry } from '../helpers/getApiCountry';
 
 const API_URI = "https://restcountries.eu/rest/v2";
 
@@ -14,20 +13,16 @@ const About=()=> {
     let { keyword } = useParams();
     const [country, setCountry] = useState('')
 
-    const getContry=(n)=>{
-        setCountry(n[0])
-        
-    }
-    
+    useEffect(() => {
+       getApiCountry(API_URI, keyword)
+         .then(res=>setCountry(res[0]))
+    }, [keyword])
 
-    FetchCountries(API_URI, keyword, getContry)
 
-  
     return (
         <>
-            <Header/>
             <BtnBack />
-             <div className="container">    
+             <div  className="container">    
                 <img className="about__img" src={country.flag} alt="" />
                 <CountryInfo country={country}/>
              </div>

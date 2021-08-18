@@ -1,48 +1,69 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./components/Header/Header.js";
 import "./App.css";
-import SearchCountries from "./components/SearchCountries/SearchCountries";
-import CardCountries from "./components/CardCountrie/CardCountries";
-import FetchCountries from "./helpers/FetchCountries";
 
-const API_URI = "https://restcountries.eu/rest/v2";
+//======================import the router and pages======================/
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import About from "./pages/About.js";
+import Home from './pages/Home.js'
+import { ProviderTheme } from "./context/ContextTheme";
+import {getApiCountry} from './helpers/getApiCountry'
+
+const API_URL = "https://restcountries.eu/rest/v2";
 
 function App() {
-  const [countries, setCountries] = useState(null);
-  const [countrySearch, setCountrySearch] = useState("all");
+  const [data, setData] = useState([])
+  const [region, setRegion] = useState('')
+  const [filterCountry, setFilterCountry] = useState('')
+  const [statusSearch, setStatusSearch] = useState(false)
+  
+  useEffect(() => {
+    if(statusSearch){
+      getApiCountry(API_URL, '')
+      .then(res=>setData(res))
+    }else {
+      getApiCountry(API_URL, region)
+     .then(res=>setData(res))
+    }
+  
+  }, [region, statusSearch])
 
-  const getCountries = (data) => {
-    const res = data.map((item) => {
-      const { name, flag, capital, population, region } = item;
-      let pais = {
-        name,
-        flag,
-        capital,
-        population,
-        region,
-      };
-      return pais;
-    });
-    setCountries(res);
-  };
-  FetchCountries(API_URI, countrySearch, getCountries);
 
-  const formSearchCountry = (n) => {
-    setCountrySearch(n);
-  };
+//form filter country
+  const formSearchCountry=(query)=>{
+     //when search or when filter update statue
+     query.length ===0 ? setStatusSearch(false):setStatusSearch(true)
+     const res = data.filter(country=> country.name.toLowerCase().includes(query))
+     console.log(query)
+     console.log(res)
+  }
 
-  const filterDropdow = (region) => {
-    setCountrySearch(region);
-  };
-
+//dropdown select
+  const selectDropdown=(select)=>{
+    console.log(select)
+    setRegion(select)
+  }
+  
+ 
   return (
-    <div className="App">
-      <Header />
-      <SearchCountries
-        formSearchCountry={formSearchCountry}
-        filterDropdow={filterDropdow}
-      />
-      <CardCountries countries={countries} />
+    <div className="App">   
+      <BrowserRouter>
+      <ProviderTheme >
+        <Header />
+        <Switch>
+           <Route path="/about/:keyword">
+            <About/>
+          </Route>
+          <Route exact path="/">
+            <Home 
+              data={data}
+              formSearchCountry={formSearchCountry}
+              selectDropdown={selectDropdown}
+            />
+          </Route>
+        </Switch>
+      </ProviderTheme>
+    </BrowserRouter>
     </div>
   );
 }

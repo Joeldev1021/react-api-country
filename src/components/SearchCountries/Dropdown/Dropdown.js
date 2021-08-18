@@ -2,21 +2,16 @@ import React from 'react'
 import './Dropdown.css'
 
 
-const Dropdown = ({filterDropdow}) => {
+const Dropdown = ({selectDropdown}) => {
 
   const handleOnclick=()=>{
     const ulfilter = document.getElementById("btnRef")
     ulfilter.classList.toggle('show')
-    const liFileter = ulfilter.querySelectorAll('li')
-    liEvent(liFileter)
+   
   }
 
-  const liEvent =(li)=>{
-       li.forEach(element => {
-          element.addEventListener('click',(e)=>{
-            filterDropdow(e.target.dataset.name)
-          })
-       });
+  const handleSelect=(e)=>{
+    selectDropdown(e.target.dataset.name)
   }
 
  
@@ -25,7 +20,7 @@ const Dropdown = ({filterDropdow}) => {
        <button data-color="element" className="btn__dropdown" onClick={handleOnclick}>
           Filter by region
         </button>
-        <ul data-color="element" className="dropdow__menu" id="btnRef">
+        <ul onClick={handleSelect} data-color="element" className="dropdow__menu" id="btnRef">
           <li className="dropdown__link" data-name="africa">África</li>
           <li className="dropdown__link" data-name="americas">América</li>
           <li className="dropdown__link" data-name="asia">Asia</li>

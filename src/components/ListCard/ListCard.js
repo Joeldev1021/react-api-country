@@ -9,13 +9,15 @@ const ListCard = ({ countries }) => {
       {countries.map((item, index) => {   
         
         return (
-          <Link data-color='element'  className="link" to={`/about/${item.name}`}>
+          <Link   className="link" to={`/about/${item.name}`}>
           <div data-color="element" className="card__country" key={item.name} >  
               <img src={item.flag} alt={item.name} />
-                <p className="card__name">{item.name}</p>
-                <p className="card__population">Population: {formatNumber(item.population)}</p>
-                <p className="card__region">Region: {item.region}</p>
-                <p className="card__capital">Capital: {item.capital}</p>
+              <div class="card__info__country">
+                <p className="card__item--name">{item.name}</p>
+                <p className="card__item">Population: {formatNumber(item.population)}</p>
+                <p className="card__item">Region: {item.region}</p>
+                <p className="card__item">Capital: {item.capital}</p>
+              </div>
           </div>
           </Link>
         )
