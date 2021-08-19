@@ -26,7 +26,7 @@ const ItemInfoCountry = ({ country }) => {
           {country.capital}
         </p>
       </div>
-      <div className="description_info">
+      <div className="description_info info__left">
         <p>
           <span>Top Level Domain: </span>
           {country.topLevelDomain}

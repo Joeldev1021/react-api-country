@@ -14,3 +14,10 @@
      opacity: 1;
      transition: ease .5s;
 }
+
+@media (max-width: 800px) {
+   .container__btn {
+     
+      padding-top: 20px;
+   }
+}

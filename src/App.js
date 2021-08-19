@@ -5,9 +5,9 @@ import "./App.css";
 //======================import the router and pages======================/
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "./pages/About.js";
-import Home from './pages/Home.js'
+import Home from './pages/Home.js';
 import { ProviderTheme } from "./context/ContextTheme";
-import {getApiCountry} from './helpers/getApiCountry'
+import {getApiCountry} from './helpers/getApiCountry';
 
 const API_URL = "https://restcountries.eu/rest/v2";
 
@@ -32,9 +32,10 @@ function App() {
   const formSearchCountry=(query)=>{
      //when search or when filter update statue
      query.length ===0 ? setStatusSearch(false):setStatusSearch(true)
-     const res = data.filter(country=> country.name.toLowerCase().includes(query))
+     //const res = data.filter(country=> country.name.toLowerCase().includes(query))
+     setData(data.filter(country=> country.name.toLowerCase().includes(query)))
      console.log(query)
-     console.log(res)
+     //console.log(res)
   }
 
 //dropdown select

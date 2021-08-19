@@ -54,6 +54,20 @@
      transition: ease .5s;
 }
 
+.aiOutlineDown {
+    margin-left: 40px;
+    top:2px;
+    position: relative;
+    font-size: 15px;
+    transition: ease 0.5s all;
+}
+
+.rotate{
+    transform: rotate(180deg);
+}
+
+
+
 
 
 @media (max-width: 667px) {

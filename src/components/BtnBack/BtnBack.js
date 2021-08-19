@@ -9,7 +9,7 @@ function BtnBack() {
 
 
   return (
-    <div className="container">
+    <div className="container container__btn">
       <Link  to="/">
         <h4  className="btn fas fa-arrow-left">Back</h4>
       </Link>
