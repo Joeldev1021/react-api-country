@@ -8,9 +8,7 @@ const CardCountries = ({data}) => {
 
     return (
         <div  className="container__country">
-          {
-            data.length>0? <ListCard  countries={data}/>: <Loading/>
-          }
+           <ListCard  countries={data}/>
         </div>
     )
 }

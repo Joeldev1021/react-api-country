@@ -4,25 +4,21 @@ import '../../App.css'
 import ItemInfoCountry from "./ItemInfoCountry";
 import BorderCountry from "./BorderCountry";
 
-const CountryInfo = ({ country,data }) => {
+const CountryInfo = ({ country }) => {
 
- 
+   console.log(country);
   return (
     <>
-      {country ? (
         <div className="container__description">
-          <h1>{country.name}</h1>
+          <h1>{country.name.official}</h1>
           <div className="container__infoCountry">
-            <ItemInfoCountry country={country}/>
+           <ItemInfoCountry country={country}/> 
           </div>
           <div className="borders">
              <p><span>Border Countries:</span> </p>
-              <BorderCountry data={data} borders={country.borders}/>
+              {/* <BorderCountry data={data} borders={country.borders}/> */}
            </div>
         </div>
-      ) : (
-        <h1>cargando...</h1>
-      )}
     </>
   );
 };

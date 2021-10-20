@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Header from "./components/Header/Header.js";
 import "./App.css";
 
@@ -7,41 +7,36 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import About from "./pages/About.js";
 import Home from './pages/Home.js';
 import { ProviderTheme } from "./context/ContextTheme";
-import {getApiCountry} from './helpers/getApiCountry';
 
-const API_URL = "https://restcountries.eu/rest/v2";
+import UsersNotFound from "./pages/UsersNotFound.js";
+import useFetch from "./hooks/useFetch.js";
+
 
 function App() {
-  const [data, setData] = useState([])
   const [region, setRegion] = useState('')
   const [statusSearch, setStatusSearch] = useState(false)
-  
-  useEffect(() => {
-    if(statusSearch){
-      getApiCountry(API_URL, '')
-      .then(res=>setData(res))
-    }else {
-      getApiCountry(API_URL, region)
-     .then(res=>setData(res))
-    }
-  
-  }, [region, statusSearch])
 
-
+  const {isLoading, isError, data, setData} = useFetch(region, statusSearch)
+  
+  
 //form filter country
   const formSearchCountry=(query)=>{
-     //when search or when filter update statue
-     query.length ===0 ? setStatusSearch(false):setStatusSearch(true)
-     //const res = data.filter(country=> country.name.toLowerCase().includes(query))
-     setData(data.filter(country=> country.name.toLowerCase().includes(query)))
-     console.log(query)
-     //console.log(res)
+     //when search or when filter update status
+     if(query.length > 0){
+      setStatusSearch(true)
+      const res = data.filter(country=> country.name.common.toLowerCase().includes(query))
+      setData(res)
+     }else {
+       setStatusSearch(false)
+     }
+    
+     
   }
 
 //dropdown select
   const selectDropdown=(select)=>{
-    console.log(select)
     setRegion(select)
+   
   }
   
  
@@ -52,15 +47,17 @@ function App() {
         <Header />
         <Switch>
            <Route path="/about/:keyword">
-            <About data={data}/>
+            <About />
           </Route>
           <Route exact path="/">
             <Home 
               data={data}
               formSearchCountry={formSearchCountry}
               selectDropdown={selectDropdown}
+              isLoading={isLoading}
             />
           </Route>
+           <Route path='*' component={UsersNotFound} /> 
         </Switch>
       </ProviderTheme>
     </BrowserRouter>

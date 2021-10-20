@@ -1,17 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { ContextTheme } from "../../context/ContextTheme";
+
 import './BtnBack.css'
 
 function BtnBack() {
   
-
-
-
   return (
     <div className="container container__btn">
       <Link  to="/">
-        <h4  className="btn fas fa-arrow-left">Back</h4>
+        <p className="btn"><i class="fas fa-arrow-left"></i>Back</p>
       </Link>
     </div>
   );

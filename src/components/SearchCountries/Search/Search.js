@@ -12,7 +12,6 @@ export default function Search({formSearchCountry}) {
 
   const handleChange=(n)=>{
     formSearchCountry(n)
-    
   }
 
   return (
