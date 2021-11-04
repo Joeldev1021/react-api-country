@@ -1,14 +1,12 @@
 import React from "react";
 import SearchCountries from "../components/SearchCountries/SearchCountries";
 import CardCountries from "../components/CardCountrie/CardCountries";
-import Loading from "../components/Loading";
+import Loading from "../components/loading/Loading";
 
 
 
 const Home = ({ data, formSearchCountry,selectDropdown, isLoading }) => {
 
-
-  console.log(data)
   return (
     <>
      <SearchCountries

@@ -18,19 +18,16 @@ function App() {
 
   const {isLoading, isError, data, setData} = useFetch(region, statusSearch)
   
-  
-//form filter country
+  console.log(data)
   const formSearchCountry=(query)=>{
      //when search or when filter update status
      if(query.length > 0){
       setStatusSearch(true)
       const res = data.filter(country=> country.name.common.toLowerCase().includes(query))
       setData(res)
-     }else {
-       setStatusSearch(false)
+     }else{
+      setStatusSearch(false)
      }
-    
-     
   }
 
 //dropdown select

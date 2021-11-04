@@ -6,7 +6,7 @@ import BorderCountry from "./BorderCountry";
 
 const CountryInfo = ({ country }) => {
 
-   console.log(country);
+
   return (
     <>
         <div className="container__description">
@@ -16,7 +16,13 @@ const CountryInfo = ({ country }) => {
           </div>
           <div className="borders">
              <p><span>Border Countries:</span> </p>
-              {/* <BorderCountry data={data} borders={country.borders}/> */}
+             <div className="container__borders"> 
+               {
+                  country.borders.length > 0 
+                  ? country.borders.map(border => <BorderCountry key={border} border={border}/>)
+                  : <p>No borders</p>
+               }
+               </div>
            </div>
         </div>
     </>

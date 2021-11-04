@@ -5,7 +5,7 @@ import CountryInfo from "../components/countryInfo/CountryInfo";
 import "./styles.css";
 
 import useFetch from "../hooks/useFetch";
-import Loading from "../components/Loading";
+import Loading from "../components/loading/Loading";
 
 
 const About = () => {

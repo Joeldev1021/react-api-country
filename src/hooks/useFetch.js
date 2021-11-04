@@ -9,17 +9,21 @@ const useFetch = (keyword, statusSearch) => {
     const [data, setData] = useState([])
     const [isError, setIsError] = useState(false)
     const [isLoading , setisLoading] = useState(null)
-     
-    useEffect(()=> {
 
+
+    useEffect(()=> {
+       if(!statusSearch){
         if(regionArray.includes(keyword)){
             urlSearch = `https://restcountries.com/v3.1/region/${keyword}`
         }else if(keyword){ 
             urlSearch = `https://restcountries.com/v2/alpha/${keyword}`
-       }else if(statusSearch){
-            urlSearch = `https://restcountries.com/v3.1/all`
        }
-    }, [keyword])
+       }else {
+           urlSearch = `https://restcountries.com/v3.1/all`
+       }
+    }, [keyword || statusSearch])
+
+  
 
     useEffect(() => {
       setisLoading(true)

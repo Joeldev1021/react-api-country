@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ListCard from '../ListCard/ListCard';
-import Loading from '../Loading'
+import Loading from '../loading/Loading'
 import './CardCountry.css'
 
 const CardCountries = ({data}) => {

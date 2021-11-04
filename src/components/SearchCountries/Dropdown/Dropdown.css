@@ -8,6 +8,7 @@
 }
 .show {
     height: 190px;
+    z-index: 2000;
 }
 
 .dropdown {
