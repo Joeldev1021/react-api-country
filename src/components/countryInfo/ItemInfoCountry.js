@@ -1,7 +1,6 @@
 import React from "react";
 
 const ItemInfoCountry = ({ country }) => {
-  
   return (
     <>
       <div className="description_info">
@@ -36,12 +35,16 @@ const ItemInfoCountry = ({ country }) => {
           {country.currencies[0].name}
         </p>
         <div className="lenguages">
-          <p><span>Languages: </span></p>
+          <p>
+            <span>Languages: </span>
+          </p>
           <div className="container__lenguages">
-            {country.languages.map((lenguage,index) => {
-              return country.languages.length-1 > index
-              ? <p key={lenguage.name}>{lenguage.name},</p>
-              :<p key={lenguage.name}>{lenguage.name}</p>
+            {country.languages.map((lenguage, index) => {
+              return country.languages.length - 1 > index ? (
+                <p key={lenguage.name}>{lenguage.name},</p>
+              ) : (
+                <p key={lenguage.name}>{lenguage.name}</p>
+              );
             })}
           </div>
         </div>

@@ -1,63 +1,30 @@
-import {  useState } from "react";
-import Header from "./components/Header/Header.js";
-import "./App.css";
-
-//======================import the router and pages======================/
+import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import About from "./pages/About.js";
-import Home from './pages/Home.js';
+import Header from "./components/Header/Header";
+import "./App.css";
+//= =====================import the router and pages======================/
+import About from "./pages/About";
+import Home from "./pages/Home";
 import { ProviderTheme } from "./context/ContextTheme";
-
-import UsersNotFound from "./pages/UsersNotFound.js";
-import useFetch from "./hooks/useFetch.js";
-
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [region, setRegion] = useState('')
-  const [statusSearch, setStatusSearch] = useState(false)
-
-  const {isLoading, isError, data, setData} = useFetch(region, statusSearch)
-  
-  console.log(data)
-  const formSearchCountry=(query)=>{
-     //when search or when filter update status
-     if(query.length > 0){
-      setStatusSearch(true)
-      const res = data.filter(country=> country.name.common.toLowerCase().includes(query))
-      setData(res)
-     }else{
-      setStatusSearch(false)
-     }
-  }
-
-//dropdown select
-  const selectDropdown=(select)=>{
-    setRegion(select)
-   
-  }
-  
- 
   return (
-    <div className="App">   
+    <div className="App">
       <BrowserRouter>
-      <ProviderTheme >
-        <Header />
-        <Switch>
-           <Route path="/about/:keyword">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <Home 
-              data={data}
-              formSearchCountry={formSearchCountry}
-              selectDropdown={selectDropdown}
-              isLoading={isLoading}
-            />
-          </Route>
-           <Route path='*' component={UsersNotFound} /> 
-        </Switch>
-      </ProviderTheme>
-    </BrowserRouter>
+        <ProviderTheme>
+          <Header />
+          <Switch>
+            <Route path="/about/:keyword">
+              <About />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="*" component={NotFound} />
+          </Switch>
+        </ProviderTheme>
+      </BrowserRouter>
     </div>
   );
 }

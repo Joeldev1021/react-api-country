@@ -3,7 +3,8 @@
     margin: auto;
     display: grid;
     grid-gap: 68px;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr))
+    place-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
 

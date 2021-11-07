@@ -1,17 +1,18 @@
-import React, { useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useBordersCountries } from "../../hooks/useBordersCountries";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useSingleCountry } from "../../hooks/useSingleCountry";
+import NotFound from "../../pages/NotFound";
 
+const BorderCountry = ({ border }) => {
+  const { data, error } = useSingleCountry(border);
 
-export default function BorderCountry({ border }) {
-  
-  const { data, error, loading } = useBordersCountries(border);
-  
+  if (error) return <NotFound />;
+
   return (
     <>
-      {data &&(
+      {data && (
         <Link
-          to={`/about/${data.name}`}
+          to={`/about/${data[0].cca2}`}
           className="btn border__country"
           key={data[0].name.common}
         >
@@ -20,4 +21,6 @@ export default function BorderCountry({ border }) {
       )}
     </>
   );
-}
+};
+
+export default BorderCountry;
