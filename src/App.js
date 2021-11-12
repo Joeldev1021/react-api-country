@@ -11,7 +11,7 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter basename="/react-api-countries">
+      <BrowserRouter basename="/react-api-contries">
         <ProviderTheme>
           <Header />
           <Switch>
