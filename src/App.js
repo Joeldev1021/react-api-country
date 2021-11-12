@@ -11,15 +11,15 @@ import NotFound from "./pages/NotFound";
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
+      <BrowserRouter basename="/react-api-countries">
         <ProviderTheme>
           <Header />
           <Switch>
-            <Route path="/about/:keyword">
-              <About />
-            </Route>
             <Route exact path="/">
               <Home />
+            </Route>
+            <Route path="/about/:keyword">
+              <About />
             </Route>
             <Route path="*" component={NotFound} />
           </Switch>
