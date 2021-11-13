@@ -17,6 +17,9 @@
     width: 90%;
     margin: auto;
 }
+.container a {
+    color: var(--text);
+}
 
 .btn__dark{
    background: none;

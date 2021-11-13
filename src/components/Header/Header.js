@@ -4,6 +4,7 @@
 import React, { useContext, useEffect, useState } from "react";
 
 import { FaRegMoon, FaMoon } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { ContextTheme } from "../../context/ContextTheme";
 import "./header.css";
 
@@ -38,7 +39,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="container">
-        <h4 className="header__title">Where in the world?</h4>
+        <Link to="/">
+          <h4 className="header__title">Where in the world?</h4>
+        </Link>
         <button
           type="button"
           onClick={() => handleTheme()}
