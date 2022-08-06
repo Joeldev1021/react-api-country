@@ -1,11 +1,11 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import BtnBack from "../components/BtnBack/BtnBack";
-import CountryInfo from "../components/countryInfo/CountryInfo";
 import "./styles.css";
 import useFetch from "../hooks/useFetch";
-import Loading from "../components/loading/Loading";
+import Loading from "../components/Loading/Loading";
 import NotFound from "./NotFound";
+import CountryInfo from "../components/CountryInfo/CountryInfo";
 
 const About = () => {
   const { keyword } = useParams();

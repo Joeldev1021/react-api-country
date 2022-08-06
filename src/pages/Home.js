@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SearchCountries from "../components/SearchCountries/SearchCountries";
-import CardCountries from "../components/CardCountrie/CardCountries";
+import CardCountries from "../components/CardCountry/CardCountries";
 import useFetch from "../hooks/useFetch";
 import NotFound from "./NotFound";
 

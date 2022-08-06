@@ -1,46 +1,55 @@
 import React from "react";
 
-const ItemInfoCountry = ({ country }) => {
+const ItemInfoCountry = ({
+  nativeName,
+  population,
+  region,
+  subregion,
+  capital,
+  topLevelDomain,
+  languages,
+  currencies
+}) => {
   return (
     <>
       <div className="description_info">
         <p>
           <span>Native Name: </span>
-          {country.nativeName}
+          {nativeName}
         </p>
         <p>
           <span>Population: </span>
-          {country.population}
+          {population}
         </p>
         <p>
           <span>Region: </span>
-          {country.region}
+          {region}
         </p>
         <p>
           <span>Sub Region: </span>
-          {country.subregion}
+          {subregion}
         </p>
         <p>
           <span>Capital: </span>
-          {country.capital}
+          {capital}
         </p>
       </div>
       <div className="description_info info__left">
         <p>
           <span>Top Level Domain: </span>
-          {country.topLevelDomain}
+          {topLevelDomain}
         </p>
         <p>
           <span>Currencies: </span>
-          {country.currencies[0].name}
+          {currencies.name}
         </p>
         <div className="lenguages">
           <p>
             <span>Languages: </span>
           </p>
           <div className="container__lenguages">
-            {country.languages.map((lenguage, index) => {
-              return country.languages.length - 1 > index ? (
+            {languages.map((lenguage, index) => {
+              return languages.length - 1 > index ? (
                 <p key={lenguage.name}>{lenguage.name},</p>
               ) : (
                 <p key={lenguage.name}>{lenguage.name}</p>

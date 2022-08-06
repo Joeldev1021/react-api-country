@@ -17,6 +17,8 @@ const useFetch = (keyword, statusSearch) => {
     if (!statusSearch) {
       if (regionArray.includes(keyword)) {
         urlSearch = `https://restcountries.com/v3.1/region/${keyword}`;
+      } else if (Array.isArray(keyword)) {
+        urlSearch = `https://restcountries.com/v3.1/alpha?codes=${keyword}`;
       } else if (keyword) {
         urlSearch = `https://restcountries.com/v2/alpha/${keyword}`;
       }
@@ -31,7 +33,7 @@ const useFetch = (keyword, statusSearch) => {
       .then((res) => setData(res))
       .finally(() => setisLoading(false))
       .catch(() => setIsError(true));
-  }, [keyword || statusSearch]);
+  }, [keyword, statusSearch]);
 
   return { isError, isLoading, data, setData };
 };

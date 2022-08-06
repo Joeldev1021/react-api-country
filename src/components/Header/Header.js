@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
